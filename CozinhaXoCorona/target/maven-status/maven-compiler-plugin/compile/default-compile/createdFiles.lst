@@ -1,0 +1,4 @@
+Entidade\Receita.class
+Entidade\Profissional.class
+dao\ProfissionalDAOImp.class
+dao\ProfissionalDAO.class

@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Login Receitas</title>
+        <link rel="StyleSheet" type="text/css" href="css/estilos.css" media="screen" />
+    </h:head>
+    <h:body>
+    <f:view>
+      <h:form id="formLogin" >
+      
+        <h1><h:outputText id="bemVindo" value="Cozinha XôCorona"/></h1>
+        <h:panelGrid id="gridLoginSenha" columns="2">
+          <h:outputText id="loginLabel" value="Login:"/>
+          <h:inputText id="login" value="" styleClass="edit" size="60"/>
+
+          <h:outputText id="senhaLabel" value="Senha:" styleClass="rotulos"/>
+          <h:inputSecret id="senha" value="" styleClass="edit" size="60"/>
+        </h:panelGrid>
+        <h:commandButton id="botao" value="Entrar" styleClass="botoes" />
+      </h:form>
+   </f:view>
+    </h:body>
+</html>

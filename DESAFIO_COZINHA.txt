@@ -1,0 +1,43 @@
+Pprojeto  PROFISSIONAIS E RECEITAS (Cozinha VaiCorona)
+
+Telas: 
+Login
+-> Acesso ao sistema;
+-> Acesso a tela de Pesquisa de receitas prontas;
+-> Acesso a tela de Criar novas receitaas;
+
+Pesquisa
+-> Lista as receitas ao entrar na tela;
+-> Filtro para pesquisar por nome da receita;
+
+*Entidades:
+Login;
+Receitas;
+Profissionais;
+
+*Atributos:
+->Login
+-nomeAdmin:string
+-senhaAdmin:string
+-nomeLog:string
+-senhaLo:string
+->Receita
+-idRec:Long
+-nomeRec:string
+-ingrediente
+-quantidade:String
+-descricao string
+-emailPro string
+->Profissional
+-idPro:long
+-nomePro:string
+-email:string
+-senhaLog:string
+
+
+
+
+Criar charts -> https://www.lucidchart.com/users/login
+
+
+

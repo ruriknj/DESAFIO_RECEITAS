@@ -1,0 +1,101 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+
+<h:body>
+
+	<h:form id="form">
+		<p:messages id="messages" showDetail="true" closable="true">
+			<p:autoUpdate />
+		</p:messages>
+		<p:panel id="crud">
+			<p:panelGrid style="width: 50%">
+				<p:row>
+					<p:column style="width:40px">
+						<h:outputLabel value="Nome: " />
+					</p:column>
+					<p:column colspan="2" style="width:400px">
+						<p:inputText value="#{ProfissionalBean.profissional.nomePro}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column style="width:40px">
+						<h:outputLabel value="Email: " />
+					</p:column>
+					<p:column colspan="2" style="width:400px">
+						<p:inputText value="#{ProfissionalBean.profissional.email}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column style="width:40px">
+						<h:outputLabel value="Senha: " />
+					</p:column>
+					<p:column colspan="2" style="width:400px">
+						<p:password value="#{ProfissionalBean.profissional.senhaLog}" />
+					</p:column>
+				</p:row>
+				<p:row>
+					<p:column colspan="5">
+						<p:panel header="Receitas" >
+							<p:panelGrid columns="4"> 
+							<h:outputLabel value="Nome da Receita: " />
+								<p:inputText size="15" 
+								value="#{ProfissionalBean.receita.nomeRec}" />
+								<h:outputLabel value="Quantidade: " />
+								<p:inputText size="2"
+									value="#{ProfissionalBean.receita.quantidade}" />
+								<h:outputLabel value="Ingrediente: " />
+								<p:inputText size="20"
+									value="#{ProfissionalBean.receita.ingrediente}" />
+								<h:outputLabel value="Descrição: " />
+								<p:inputText size="20"
+									value="#{ProfissionalBean.receita.descricao}" />
+								<p:commandButton value="Adicionar" update="receitas"
+									style="margin-right:20px"
+									actionListener="#{ProfissionalBean.adicionaRceita}" />
+							</p:panelGrid> 
+							<p:dataTable id="receitas" var="receita"
+								value="#{ProfissionalBean.profissional.receitas}">
+								<p:ajax event="rowSelect" update="receitas"/>
+								<p:column headerText="Nome">
+									<h:outputText value="#{receita.nomeRec}" />
+								<p:inputText size="15" 
+								value="#{ProfissionalBean.receita.nomeRec}" />	
+								</p:column>
+								<p:column headerText="Quantidade">
+									<h:outputText value="#{receita.quantidade}" />
+								</p:column>
+								<p:column headerText="Ingrediente">
+									<h:outputText value="#{receita.ingrediente}" />
+								</p:column>
+								<p:column headerText="Descrição">
+									<h:outputText value="#{receita.descricao}" />
+								</p:column>
+							
+							</p:dataTable>
+						</p:panel>
+					</p:column>
+				</p:row>
+			
+			</p:panelGrid>
+			<p:row>
+				<p:column colspan="2">
+					<p:commandButton value="Salvar" update="@form"
+						actionListener="#{ProfissionalBean.salva}" />
+				</p:column>
+				<p:column>
+					<p:commandButton value="Limpar" update="crud" process="@this"
+						style="margin-right:20px;"
+						actionListener="#{ProfissionalBean.limpa}">
+					</p:commandButton>
+				</p:column>
+			</p:row>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>

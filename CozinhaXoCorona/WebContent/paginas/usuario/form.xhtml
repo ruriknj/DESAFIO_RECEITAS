@@ -1,0 +1,51 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+	
+<h:head>
+
+<title>Insert title here</title>
+
+</h:head>
+
+<h:body>
+
+
+  
+
+
+	<h1>Cadastro de funcionário</h1>
+<h:form>
+
+<div id="box">
+  
+</div>
+  
+ 
+
+	<h:panelGrid  columnClasses="column1Class, column2Class">
+		Nome<h:inputText/>
+		Senha<h:inputSecret/>
+		Sexo
+		<h:selectOneMenu>
+			<f:selectItem itemLabel="Masculino" itemValue="M"/>
+			<f:selectItem itemLabel="Feminino" itemValue="F"/>
+		</h:selectOneMenu>
+		Status
+		<h:selectOneRadio>
+			<f:selectItem itemLabel="Ativo" itemValue="A"/>
+			<f:selectItem itemLabel="Inativo" itemValue="I"/>
+		</h:selectOneRadio >
+		Observações <p:inputTextarea id="desc" value="#{validationView.description}" required="true" 
+		label="Description" style="width=60%">
+                <f:validateLength minimum="10" maximum="50" />
+            </p:inputTextarea>
+		<h:commandButton value="Cadastrar"  styleClass="botoes"/>
+			
+			</h:panelGrid>
+     	
+
+     	</h:form>
+    </h:body>
+</html>

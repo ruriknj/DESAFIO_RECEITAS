@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<h:outputStylesheet name="primeicons/primeicons.css"
+		library="primefaces" />
+</h:head>
+
+<h:body>
+	<h:form>
+		<p:panelGrid style="width: 50%">
+			<p:row>
+
+				<p:commandButton value="Atualizar lista" update="@form"
+					actionListener="#{ProfissionalBean.pesquisar}" />
+
+				<p:commandButton value="Criar Profissional"
+					actionListener="#{ProfissionalBean.abrirManterProfissional}" />
+				
+					<p:commandButton value="Fechar" onclick="closeDialog();" 
+					immediate="true" icon="ui-icon-close" />
+					<SCRIPT type="text/javascript">
+   					 function closeDialog(){window.close();}
+    				</SCRIPT>
+				
+			</p:row>
+		</p:panelGrid>
+		<p:panel header="Lista de Profissionais"
+			style="margin-bottom:5px; width: 100%">
+			<p:dataTable var="profissional" value="#{ProfissionalBean.listaProfissional}">
+				<p:column headerText="Nome">
+					<h:outputText value="#{profissional.nomePro}" />
+				</p:column>
+				<p:column headerText="E-mail">
+					<h:outputText value="#{profissional.email}" />
+				</p:column>
+				<p:column headerText="Editar" width="7%">
+					<p:commandButton icon="pi pi-pencil" action="#{ProfissionalBean.edita}">
+						<f:setPropertyActionListener 
+							target="#{ProfissionalBean.idSelecionado}"
+							value="#{profissional.id_pro}" />
+					</p:commandButton>
+				</p:column>
+				<p:column headerText="Remover" width="9%">
+					<p:commandButton icon="pi pi-times" update="@form"
+						action="#{ProfissionalBean.remove}">
+						<f:setPropertyActionListener 
+							target="#{ProfissionalBean.idSelecionado}"
+							value="#{profissional.id_pro}" />
+					</p:commandButton>
+					</p:column>
+			</p:dataTable>
+		</p:panel>
+	</h:form>
+</h:body>
+</html>
